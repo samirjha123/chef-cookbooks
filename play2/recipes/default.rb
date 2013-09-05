@@ -17,8 +17,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-chef_gem "rubyzip" do
-end
+#chef_gem "rubyzip" do
+#end
 require 'zip/zip'
 
 play2Home 		= node.play2.home
