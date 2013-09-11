@@ -24,9 +24,14 @@ template "#{node["tomcat"]["config_dir"]}/tomcat-users.xml" do
   owner "root"
   group "root"
   mode "0644"
+#  variables(
+#    :users => TomcatCookbook.users,
+#    :roles => TomcatCookbook.roles
+#  )
   variables(
-    :users => TomcatCookbook.users,
-    :roles => TomcatCookbook.roles
+    :users => [ {:id => "admin", :password => "password", :roles => ["admin", "manager"]},
+                {:id => "admin", :password => "password", :roles => ["admin", "manager"]}],
+    :roles => ["manager", "admin"]
   )
   notifies :restart, "service[tomcat]"
 end
