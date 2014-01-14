@@ -166,5 +166,5 @@ end
 
 execute "service iptables stop" do
   user "root"
-  command "service iptables stop"
+  command "ufw disable"
 end
